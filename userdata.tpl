@@ -1,10 +1,13 @@
 #!/bin/bash
 echo "----- BEGIN OF INSTALL SCRIPT -----"
 sudo yum update -y &&
-sudo yum install nginx docker python-certbot-nginx -y &&
+sudo yum install nginx docker python-certbot-nginx git -y &&
 sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose &&
 sudo chmod +x /usr/local/bin/docker-compose &&
 sudo usermod -aG docker ec2-user &&
+sudo systemctl enable docker &&
+sudo systemctl start docker &&
+sudo docker volume create redisdata &&
 echo "----- END OF INSTALL SCRIPT -----"
 #sudo apt-get install -y \
 #apt-transport-https \
