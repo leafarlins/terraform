@@ -8,6 +8,11 @@ sudo usermod -aG docker ec2-user &&
 sudo systemctl enable docker &&
 sudo systemctl start docker &&
 sudo docker volume create redisdata &&
+sudo docker volume create mongodb &&
+mkdir /srv/data &&
+mkdir /srv/srvfiles &&
+chown -R ec2-user. /srv/data /srv/srvfiles &&
+#sudo timedatectl set-timezone America/Sao_Paulo &&
 echo "----- END OF INSTALL SCRIPT -----"
 #sudo apt-get install -y \
 #apt-transport-https \

@@ -1,7 +1,11 @@
 output "public_ip" {
-  value = aws_instance.dev_node_2024.public_ip
+  value = module.server.public_ip
 }
 
 output "ipv6_ip" {
-  value = aws_instance.dev_node_2024.ipv6_addresses[0]
+  value = module.server.ipv6_ip
+}
+
+output "elastic_ip" {
+  value = module.network.elastic_ip
 }
