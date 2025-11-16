@@ -1,7 +1,9 @@
 #!/bin/bash
 echo "----- BEGIN OF INSTALL SCRIPT -----"
 sudo yum update -y &&
-sudo yum install nginx docker python-certbot-nginx git -y &&
+sudo yum install nginx docker python-certbot-nginx git https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm -y &&
+sudo systemctl enable amazon-ssm-agent &&
+sudo systemctl start amazon-ssm-agent &&
 sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose &&
 sudo chmod +x /usr/local/bin/docker-compose &&
 sudo usermod -aG docker ec2-user &&

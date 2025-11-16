@@ -3,7 +3,7 @@ resource "aws_vpc" "site_vpc" {
   enable_dns_hostnames = true
   enable_dns_support   = true
   assign_generated_ipv6_cidr_block = true
-  
+
   tags = {
     Name = "leafarlins"
   }
@@ -59,7 +59,7 @@ resource "aws_security_group" "site_sg" {
     from_port = 22
     to_port = 22
     protocol = "TCP"
-    cidr_blocks = ["66.131.186.77/32"]
+    cidr_blocks = []
     #ipv6_cidr_blocks = ["fe80::4c63:6ca0:1e8:afe/128"]
   }
   ingress {

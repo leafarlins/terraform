@@ -7,3 +7,14 @@ variable "region" {
   type = string
   description = "AWS Region"
 }
+
+variable "hcloud_token" {
+  sensitive = true
+  type = string
+}
+
+variable "ssh_ips" {
+  type = list(string)
+  description = "IPs for ssh"
+  default = []
+}

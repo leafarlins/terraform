@@ -12,6 +12,7 @@ resource "aws_instance" "node_2025" {
   user_data = file("${path.module}/userdata.tpl")
   ipv6_address_count = 1
   private_ip = var.private_ip
+  iam_instance_profile = aws_iam_instance_profile.ec2_profile.name
 
   root_block_device {
     volume_size = 10
